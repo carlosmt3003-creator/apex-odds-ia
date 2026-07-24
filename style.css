@@ -66,19 +66,18 @@ body{
 }
 
 
-.logo span{
-
-    background:linear-gradient(
+.logo span {
+    background: linear-gradient(
         to right,
         #2563EB,
         #7C3AED,
         #10B981
     );
 
-    -webkit-background-clip:text;
-
-    color:transparent;
-
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
 
@@ -888,7 +887,7 @@ nav{
 
 
 }#alta{
-    color: rgba(255, 0, 0, 0.856);
+    color: #94A3B8;
 }
 /* ESTATÍSTICAS */
 
