@@ -887,7 +887,8 @@ nav{
 
 
 }#alta{
-    color: #94A3B8;
+    color: red;
+    
 }
 /* ESTATÍSTICAS */
 
@@ -942,4 +943,29 @@ nav{
 .item strong{
     font-size: 2rem;
     color: #00d26a;
+}
+.visitantes{
+    display:flex;
+    justify-content:center;
+    padding:50px 20px;
+}
+
+.visitantes-box{
+    width:300px;
+    background:#121212;
+    border:1px solid #2c2c2c;
+    border-radius:15px;
+    padding:25px;
+    text-align:center;
+}
+
+.visitantes-box h2{
+    color:#fff;
+    margin-bottom:15px;
+}
+
+.contador{
+    color:#00ff88;
+    font-size:28px;
+    font-weight:bold;
 }
