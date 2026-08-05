@@ -85,8 +85,8 @@ header > h3{
 }
 
 .principal picture img {
-    width: 500px;
-    max-width: 100%;
+    width: 100%;
+    max-width: 500px;
     height: auto;
     box-shadow: 0 3px 50px #06b5d470;
     border-radius: 20px;
@@ -267,14 +267,15 @@ section > h3{
 .js {
     width: 70%;
 }
-.listas {
+.listas{
     display: flex;
-    gap: 50px; 
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    padding: 20px;
     background-color: #0B1120;
     color: white;
-    padding-left: 100px;
 }
-
 .listas ul {
     list-style: none;
 }
@@ -296,9 +297,10 @@ section > h3{
     background-color: #0B1120;
 }
 .conhecimentos > h3{
-     padding-left: 100px;
-    color: white;
-    font-weight: 400;
+    text-align:center;
+    padding:20px;
+    color:white;
+    font-weight:400;
 }.Objetivos{
     background-color: #0B1120;
     color: white;
@@ -317,4 +319,71 @@ section > h3{
     text-align: center;
     font-size: 17px;
     padding-bottom: 10px;
+}
+/* ===========================
+   RESPONSIVIDADE
+=========================== */
+
+html,
+body{
+    overflow-x:hidden;
+}
+
+@media (max-width:768px){
+
+    header{
+        flex-direction:column;
+        gap:20px;
+        text-align:center;
+    }
+
+    header nav{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    .principal{
+        flex-direction:column;
+        text-align:center;
+        gap:30px;
+        padding:25px;
+    }
+
+    .principal picture img{
+        width:100%;
+        max-width:320px;
+    }
+
+    .conteudo{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .conteudo img{
+        width:180px;
+    }
+
+    .habilidades{
+        padding:30px 20px;
+    }
+
+    .card{
+        width:100%;
+        max-width:320px;
+    }
+
+    .listas{
+        flex-direction:column;
+        gap:20px;
+        padding:20px;
+    }
+
+    .Objetivos{
+        padding:20px;
+        text-align:center;
+    }
+
+    footer{
+        padding:20px;
+    }
 }
