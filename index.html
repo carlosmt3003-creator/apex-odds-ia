@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ROULET BANK • Analyzer</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="background-grid"></div>
+    <div class="scan-line"></div>
+
+    <main class="app">
+
+        <!-- HEADER -->
+        <header class="topbar">
+
+            <div class="brand">
+
+                <div class="brand-icon">
+                    RB
+                </div>
+
+                <div>
+
+                    <span class="brand-mini">
+                        PRO ANALYZER
+                    </span>
+
+                    <h1>
+                        Roulet<span>Bank</span>
+                    </h1>
+
+                </div>
+
+            </div>
+
+            <div class="system-status">
+
+                <span class="pulse"></span>
+
+                SISTEMA ONLINE
+
+            </div>
+
+        </header>
+
+
+        <!-- ESCOLHER ROLETA -->
+
+        <section class="hero card">
+
+            <div class="hero-content">
+
+                <span class="eyebrow">
+                    01 / CONFIGURAÇÃO
+                </span>
+
+                <h2>
+                    Escolha a sua
+                    <strong>roleta</strong>
+                </h2>
+
+                <p>
+                    Selecione a mesa que você está utilizando
+                    antes de iniciar a análise.
+                </p>
+
+            </div>
+
+            <button
+                id="btnEscolherRoleta"
+                class="main-button"
+                type="button">
+
+                <span>
+                    ESCOLHER ROLETA
+                </span>
+
+                <b>
+                    →
+                </b>
+
+            </button>
+
+        </section>
+
+
+        <!-- MODAL ROLETA -->
+
+        <div
+            id="modalRoleta"
+            class="modal">
+
+            <div class="modal-box">
+
+                <button
+                    class="close-modal"
+                    id="fecharModal"
+                    type="button">
+
+                    ×
+
+                </button>
+
+                <span class="eyebrow">
+                    SELECIONE A MESA
+                </span>
+
+                <h2>
+                    Qual roleta você está usando?
+                </h2>
+
+                <div class="roulette-options">
+
+                    <button
+                        class="roulette-option"
+                        data-roulette="Roleta Brasileira"
+                        type="button">
+
+                        <div class="roulette-symbol">
+                            0
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Roleta Brasileira
+                            </strong>
+
+                            <small>
+                                Roleta europeia • 37 casas
+                            </small>
+
+                        </div>
+
+                    </button>
+
+
+                    <button
+                        class="roulette-option"
+                        data-roulette="Immersive"
+                        type="button">
+
+                        <div class="roulette-symbol">
+                            I
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Immersive
+                            </strong>
+
+                            <small>
+                                Mesa Immersive selecionada
+                            </small>
+
+                        </div>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ROLETA ATUAL -->
+
+        <section
+            id="roulettePanel"
+            class="card roulette-panel hidden">
+
+            <div class="roulette-info">
+
+                <span class="eyebrow">
+                    ROLETA SELECIONADA
+                </span>
+
+                <h2 id="rouletteName">
+                    Roleta Brasileira
+                </h2>
+
+                <p id="rouletteDescription">
+                    Roleta europeia com 37 casas.
+                </p>
+
+            </div>
+
+            <div class="roulette-badge">
+
+                <span class="live-dot"></span>
+
+                ATIVA
+
+            </div>
+
+        </section>
+
+
+        <!-- DASHBOARD BANCA -->
+
+        <section class="section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-number">
+                        02
+                    </span>
+
+                    <div>
+
+                        <span class="eyebrow">
+                            BANK MANAGEMENT
+                        </span>
+
+                        <h2>
+                            Gerenciamento de banca
+                        </h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="bank-grid">
+
+                <div class="metric-card highlight">
+
+                    <span>
+                        BANCA ATUAL
+                    </span>
+
+                    <strong id="bancaAtual">
+                        R$ 200,00
+                    </strong>
+
+                    <div class="progress">
+
+                        <div
+                            id="progressBar"
+                            class="progress-fill">
+                        </div>
+
+                    </div>
+
+                    <small id="progressText">
+                        0% da meta
+                    </small>
+
+                </div>
+
+
+                <div class="metric-card">
+
+                    <span>
+                        META FINAL
+                    </span>
+
+                    <strong id="metaFinalDisplay">
+                        R$ 500,00
+                    </strong>
+
+                    <small>
+                        Objetivo da banca
+                    </small>
+
+                </div>
+
+
+                <div class="metric-card">
+
+                    <span>
+                        DIAS
+                    </span>
+
+                    <strong id="diasDisplay">
+                        16
+                    </strong>
+
+                    <small>
+                        Período planejado
+                    </small>
+
+                </div>
+
+
+                <div class="metric-card">
+
+                    <span>
+                        META MÉDIA
+                    </span>
+
+                    <strong id="metaDiaria">
+                        R$ 18,75
+                    </strong>
+
+                    <small>
+                        Lucro médio necessário
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONFIGURAÇÃO -->
+
+            <div class="card bank-config">
+
+                <div class="config-header">
+
+                    <h3>
+                        Configuração da banca
+                    </h3>
+
+                    <span>
+                        LOCAL STORAGE
+                    </span>
+
+                </div>
+
+                <div class="input-grid">
+
+                    <label>
+
+                        Banca inicial
+
+                        <input
+                            type="number"
+                            id="bancaInicial"
+                            value="200"
+                            step="0.01">
+
+                    </label>
+
+
+                    <label>
+
+                        Meta final
+
+                        <input
+                            type="number"
+                            id="metaFinal"
+                            value="500"
+                            step="0.01">
+
+                    </label>
+
+
+                    <label>
+
+                        Dias
+
+                        <input
+                            type="number"
+                            id="dias"
+                            value="16"
+                            min="1">
+
+                    </label>
+
+                </div>
+
+                <button
+                    id="salvarConfig"
+                    class="secondary-button"
+                    type="button">
+
+                    SALVAR CONFIGURAÇÃO
+
+                </button>
+
+            </div>
+
+
+            <!-- GESTÃO -->
+
+            <div class="risk-grid">
+
+                <div class="risk-card entry">
+
+                    <span>
+                        ENTRADA-BASE
+                    </span>
+
+                    <strong id="entradaBase">
+                        R$ 4,00
+                    </strong>
+
+                    <small>
+                        Referência de 2% da banca
+                    </small>
+
+                </div>
+
+
+                <div class="risk-card loss">
+
+                    <span>
+                        LIMITE DE PERDA
+                    </span>
+
+                    <strong id="stopLoss">
+                        R$ 10,00
+                    </strong>
+
+                    <small>
+                        Referência de 5% da banca
+                    </small>
+
+                </div>
+
+
+                <div class="risk-card win">
+
+                    <span>
+                        META DA SESSÃO
+                    </span>
+
+                    <strong id="stopWin">
+                        R$ 18,75
+                    </strong>
+
+                    <small>
+                        Média diária planejada
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ANALISADOR -->
+
+        <section class="section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-number">
+                        03
+                    </span>
+
+                    <div>
+
+                        <span class="eyebrow">
+                            STATISTICAL ENGINE
+                        </span>
+
+                        <h2>
+                            Analisador
+                        </h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="analyzer card">
+
+                <div class="analyzer-top">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            MODO DE ANÁLISE
+                        </span>
+
+                        <h3>
+                            Dúzias, colunas ou curvas
+                        </h3>
+
+                        <p>
+                            Escolha uma categoria de análise.
+                            As curvas utilizam a ordem física
+                            da roda europeia.
+                        </p>
+
+                    </div>
+
+
+                    <!-- CATEGORIAS -->
+
+                    <div class="category-switch">
+
+                        <button
+                            id="btnDuvidas"
+                            class="category active"
+                            type="button">
+
+                            DÚZIAS
+
+                        </button>
+
+
+                        <button
+                            id="btnColunas"
+                            class="category"
+                            type="button">
+
+                            COLUNAS
+
+                        </button>
+
+
+                        <button
+                            id="btnCurvas"
+                            class="category"
+                            type="button">
+
+                            CURVAS
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- HISTÓRICO -->
+
+                <div class="history-input">
+
+                    <div class="history-title">
+
+                        <div>
+
+                            <span>
+                                HISTÓRICO
+                            </span>
+
+                            <small>
+                                Digite os números separados por espaço
+                            </small>
+
+                        </div>
+
+                        <span id="historyCount">
+                            0 GIROS
+                        </span>
+
+                    </div>
+
+
+                    <textarea
+                        id="historyInput"
+                        placeholder="Exemplo: 12 5 23 0 31 18 7 29 14 3">
+                    </textarea>
+
+
+                    <div class="history-actions">
+
+                        <button
+                            id="addHistory"
+                            class="secondary-button"
+                            type="button">
+
+                            SALVAR HISTÓRICO
+
+                        </button>
+
+
+                        <button
+                            id="clearHistory"
+                            class="ghost-button"
+                            type="button">
+
+                            LIMPAR
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ANÁLISE -->
+
+                <div class="analysis-area">
+
+                    <button
+                        id="analyzeButton"
+                        class="analyze-button"
+                        type="button">
+
+                        <span class="button-icon">
+                            ◉
+                        </span>
+
+                        <span>
+                            ANALISAR ENTRADAS
+                        </span>
+
+                        <b>
+                            →
+                        </b>
+
+                    </button>
+
+
+                    <!-- LOADER -->
+
+                    <div
+                        id="loader"
+                        class="loader hidden">
+
+                        <div class="loader-orbit">
+
+                            <div class="orbit"></div>
+
+                            <div class="loader-core">
+                                AI
+                            </div>
+
+                        </div>
+
+
+                        <div class="loading-text">
+
+                            <span id="loadingStatus">
+                                Inicializando análise...
+                            </span>
+
+
+                            <div class="loading-bar">
+
+                                <div
+                                    id="loadingProgress">
+                                </div>
+
+                            </div>
+
+
+                            <div class="loading-items">
+
+                                <span id="loadHistory">
+                                    ○ HISTÓRICO
+                                </span>
+
+                                <span id="loadCombinations">
+                                    ○ COMBINAÇÕES
+                                </span>
+
+                                <span id="loadStatistics">
+                                    ○ ESTATÍSTICAS
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RESULTADO -->
+
+                    <div
+                        id="result"
+                        class="result hidden">
+
+                        <div class="result-header">
+
+                            <div>
+
+                                <span class="eyebrow">
+                                    ANÁLISE CONCLUÍDA
+                                </span>
+
+                                <h3>
+                                    Combinação selecionada
+                                </h3>
+
+                            </div>
+
+
+                            <span class="random-badge">
+                                ALTA CHANCE DE WIN
+                            </span>
+
+                        </div>
+
+
+                        <div class="result-combination">
+
+                            <span id="resultType">
+                                DÚZIAS
+                            </span>
+
+                            <strong id="resultCombination">
+                                DÚZIA 1 + DÚZIA 2
+                            </strong>
+
+                            <div class="zero-protection">
+
+                                <span>
+                                    0
+                                </span>
+
+                                PROTEÇÃO ZERO ATIVA
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stats-grid">
+
+                            <div>
+
+                                <span>
+                                    GIROS ANALISADOS
+                                </span>
+
+                                <strong id="analyzedSpins">
+                                    0
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    MARTIGALE
+                                </span>
+
+                                <strong id="combinationCount">
+                                    2
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    CHANCE DE WIN
+                                </span>
+
+                                <strong id="coverage">
+                                    0%
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            id="analyzeAgain"
+                            class="analyze-again"
+                            type="button">
+
+                            ANALISAR NOVAMENTE
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- HISTÓRICO DA BANCA -->
+
+        <section class="section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-number">
+                        04
+                    </span>
+
+                    <div>
+
+                        <span class="eyebrow">
+                            SESSION LOG
+                        </span>
+
+                        <h2>
+                            Resultados da banca
+                        </h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="result-register">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            REGISTRAR RESULTADO
+                        </span>
+
+                        <p>
+                            Use valor positivo para lucro e
+                            negativo para prejuízo.
+                        </p>
+
+                    </div>
+
+
+                    <div class="register-controls">
+
+                        <input
+                            type="number"
+                            id="resultado"
+                            step="0.01"
+                            placeholder="Ex: +15 ou -10">
+
+
+                        <button
+                            id="registrarResultado"
+                            class="secondary-button"
+                            type="button">
+
+                            REGISTRAR
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    DIA
+                                </th>
+
+                                <th>
+                                    RESULTADO
+                                </th>
+
+                                <th>
+                                    BANCA
+                                </th>
+
+                                <th>
+                                    STATUS
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="bankHistory"></tbody>
+
+                    </table>
+
+                </div>
+
+
+                <button
+                    id="resetAll"
+                    class="danger-button"
+                    type="button">
+
+                    APAGAR TODOS OS DADOS
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+
+            <span>
+                ROULETBANK
+            </span>
+
+            <small>
+                GESTÃO • ESTATÍSTICA 
+            </small>
+
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
