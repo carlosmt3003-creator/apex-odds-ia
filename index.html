@@ -1,922 +1,418 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#090909">
 
-    <title>ROULET BANK • Analyzer</title>
+    <title>Mega Sic Bac Analyzer Pro</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="ficha-de-poquer.png" type="image/x-icon">
 </head>
 
 <body>
-
     <div class="background-grid"></div>
-    <div class="scan-line"></div>
 
-    <main class="app">
+    <div class="app-container">
 
-        <!-- HEADER -->
+        <!-- CABEÇALHO -->
         <header class="topbar">
-
             <div class="brand">
+                <div class="brand-icon">M</div>
 
-                <div class="brand-icon">
-                    RB
+                <div class="brand-info">
+                    <h1>MEGA SIC <span>BAC ANALYZER</span></h1>
+                    <p>PLATAFORMA DE ANÁLISE E CONTROLE</p>
                 </div>
-
-                <div>
-
-                    <span class="brand-mini">
-                        PRO ANALYZER
-                    </span>
-
-                    <h1>
-                        Roulet<span>Bank</span>
-                    </h1>
-
-                </div>
-
             </div>
 
             <div class="system-status">
-
-                <span class="pulse"></span>
-
-                SISTEMA ONLINE
-
+                <span class="status-dot"></span>
+                <span>PAINEL PRONTO</span>
             </div>
-
         </header>
 
+        <main>
 
-        <!-- ESCOLHER ROLETA -->
-
-        <section class="hero card">
-
-            <div class="hero-content">
-
-                <span class="eyebrow">
-                    01 / CONFIGURAÇÃO
-                </span>
-
-                <h2>
-                    Escolha a sua
-                    <strong>roleta</strong>
-                </h2>
-
-                <p>
-                    Selecione a mesa que você está utilizando
-                    antes de iniciar a análise.
-                </p>
-
-            </div>
-
-            <button
-                id="btnEscolherRoleta"
-                class="main-button"
-                type="button">
-
-                <span>
-                    ESCOLHER ROLETA
-                </span>
-
-                <b>
-                    →
-                </b>
-
-            </button>
-
-        </section>
-
-
-        <!-- MODAL ROLETA -->
-
-        <div
-            id="modalRoleta"
-            class="modal">
-
-            <div class="modal-box">
-
-                <button
-                    class="close-modal"
-                    id="fecharModal"
-                    type="button">
-
-                    ×
-
-                </button>
-
-                <span class="eyebrow">
-                    SELECIONE A MESA
-                </span>
-
-                <h2>
-                    Qual roleta você está usando?
-                </h2>
-
-                <div class="roulette-options">
-
-                    <button
-                        class="roulette-option"
-                        data-roulette="Roleta Brasileira"
-                        type="button">
-
-                        <div class="roulette-symbol">
-                            0
-                        </div>
-
-                        <div>
-
-                            <strong>
-                                Roleta Brasileira
-                            </strong>
-
-                            <small>
-                                Roleta europeia • 37 casas
-                            </small>
-
-                        </div>
-
-                    </button>
-
-
-                    <button
-                        class="roulette-option"
-                        data-roulette="Immersive"
-                        type="button">
-
-                        <div class="roulette-symbol">
-                            I
-                        </div>
-
-                        <div>
-
-                            <strong>
-                                Immersive
-                            </strong>
-
-                            <small>
-                                Mesa Immersive selecionada
-                            </small>
-
-                        </div>
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- ROLETA ATUAL -->
-
-        <section
-            id="roulettePanel"
-            class="card roulette-panel hidden">
-
-            <div class="roulette-info">
-
-                <span class="eyebrow">
-                    ROLETA SELECIONADA
-                </span>
-
-                <h2 id="rouletteName">
-                    Roleta Brasileira
-                </h2>
-
-                <p id="rouletteDescription">
-                    Roleta europeia com 37 casas.
-                </p>
-
-            </div>
-
-            <div class="roulette-badge">
-
-                <span class="live-dot"></span>
-
-                ATIVA
-
-            </div>
-
-        </section>
-
-
-        <!-- DASHBOARD BANCA -->
-
-        <section class="section">
-
-            <div class="section-heading">
-
+            <!-- APRESENTAÇÃO -->
+            <section class="welcome-section">
                 <div>
+                    <span class="section-tag">DASHBOARD / OVERVIEW</span>
+                    <h2>Central de <span>operações</span></h2>
 
-                    <span class="section-number">
-                        02
-                    </span>
-
-                    <div>
-
-                        <span class="eyebrow">
-                            BANK MANAGEMENT
-                        </span>
-
-                        <h2>
-                            Gerenciamento de banca
-                        </h2>
-
-                    </div>
-
+                    <p>
+                        Acompanhe suas sessões, visualize a plataforma
+                        e organize suas análises em um único ambiente.
+                    </p>
                 </div>
 
-            </div>
+                <div class="date-card">
+                    <span>SEU AMBIENTE</span>
+                    <strong>MEGA SIC BAC</strong>
+                    <small>Controle de sessões</small>
+                </div>
+            </section>
 
+            <!-- INDICADORES -->
+            <section class="stats-grid">
+                <article class="stat-card">
+                    <div class="stat-header">
+                        <span>SESSÕES DO DIA</span>
+                        <span class="stat-icon">01</span>
+                    </div>
 
-            <div class="bank-grid">
+                    <strong class="stat-value">00 <small>/ 03</small></strong>
 
-                <div class="metric-card highlight">
+                    <div class="progress-track">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
 
-                    <span>
-                        BANCA ATUAL
+                    <p>Limite previsto de sessões</p>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-header">
+                        <span>TEMPO DE SESSÃO</span>
+                        <span class="stat-icon">02</span>
+                    </div>
+
+                    <strong class="stat-value">30 <small>MIN</small></strong>
+                    <div class="stat-line"></div>
+                    <p>Duração prevista por sessão</p>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-header">
+                        <span>STATUS DO PAINEL</span>
+                        <span class="stat-icon">03</span>
+                    </div>
+
+                    <strong class="stat-value status-text">AGUARDANDO</strong>
+                    <div class="stat-line"></div>
+                    <p>Aguardando configuração da lógica</p>
+                </article>
+            </section>
+
+            <!-- PLATAFORMA -->
+            <section class="panel platform-panel">
+
+                <div class="panel-heading">
+                    <div>
+                        <span class="section-tag">01 / PLATAFORMA</span>
+                        <h2>Ambiente de jogo</h2>
+                        <p>Insira o endereço da plataforma para tentar abri-la abaixo.</p>
+                    </div>
+
+                    <span class="live-badge">
+                        <span class="status-dot"></span>
+                        WEB VIEW
                     </span>
+                </div>
 
-                    <strong id="bancaAtual">
-                        R$ 200,00
-                    </strong>
+                <!-- CAMPO DO LINK -->
+                <form class="url-form" id="platformForm">
+                    <label for="platformUrl">ENDEREÇO DA PLATAFORMA</label>
 
-                    <div class="progress">
+                    <div class="url-input-group">
+                        <div class="input-wrapper">
+                            <span class="url-prefix">↗</span>
 
-                        <div
-                            id="progressBar"
-                            class="progress-fill">
+                            <input
+                                type="text"
+                                id="platformUrl"
+                                name="platformUrl"
+                                placeholder="https://www.exemplo.com"
+                                autocomplete="url"
+                            >
                         </div>
 
-                    </div>
-
-                    <small id="progressText">
-                        0% da meta
-                    </small>
-
-                </div>
-
-
-                <div class="metric-card">
-
-                    <span>
-                        META FINAL
-                    </span>
-
-                    <strong id="metaFinalDisplay">
-                        R$ 500,00
-                    </strong>
-
-                    <small>
-                        Objetivo da banca
-                    </small>
-
-                </div>
-
-
-                <div class="metric-card">
-
-                    <span>
-                        DIAS
-                    </span>
-
-                    <strong id="diasDisplay">
-                        16
-                    </strong>
-
-                    <small>
-                        Período planejado
-                    </small>
-
-                </div>
-
-
-                <div class="metric-card">
-
-                    <span>
-                        META MÉDIA
-                    </span>
-
-                    <strong id="metaDiaria">
-                        R$ 18,75
-                    </strong>
-
-                    <small>
-                        Lucro médio necessário
-                    </small>
-
-                </div>
-
-            </div>
-
-
-            <!-- CONFIGURAÇÃO -->
-
-            <div class="card bank-config">
-
-                <div class="config-header">
-
-                    <h3>
-                        Configuração da banca
-                    </h3>
-
-                    <span>
-                        LOCAL STORAGE
-                    </span>
-
-                </div>
-
-                <div class="input-grid">
-
-                    <label>
-
-                        Banca inicial
-
-                        <input
-                            type="number"
-                            id="bancaInicial"
-                            value="200"
-                            step="0.01">
-
-                    </label>
-
-
-                    <label>
-
-                        Meta final
-
-                        <input
-                            type="number"
-                            id="metaFinal"
-                            value="500"
-                            step="0.01">
-
-                    </label>
-
-
-                    <label>
-
-                        Dias
-
-                        <input
-                            type="number"
-                            id="dias"
-                            value="16"
-                            min="1">
-
-                    </label>
-
-                </div>
-
-                <button
-                    id="salvarConfig"
-                    class="secondary-button"
-                    type="button">
-
-                    SALVAR CONFIGURAÇÃO
-
-                </button>
-
-            </div>
-
-
-            <!-- GESTÃO -->
-
-            <div class="risk-grid">
-
-                <div class="risk-card entry">
-
-                    <span>
-                        ENTRADA-BASE
-                    </span>
-
-                    <strong id="entradaBase">
-                        R$ 4,00
-                    </strong>
-
-                    <small>
-                        Referência de 2% da banca
-                    </small>
-
-                </div>
-
-
-                <div class="risk-card loss">
-
-                    <span>
-                        LIMITE DE PERDA
-                    </span>
-
-                    <strong id="stopLoss">
-                        R$ 10,00
-                    </strong>
-
-                    <small>
-                        Referência de 5% da banca
-                    </small>
-
-                </div>
-
-
-                <div class="risk-card win">
-
-                    <span>
-                        META DA SESSÃO
-                    </span>
-
-                    <strong id="stopWin">
-                        R$ 18,75
-                    </strong>
-
-                    <small>
-                        Média diária planejada
-                    </small>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ANALISADOR -->
-
-        <section class="section">
-
-            <div class="section-heading">
-
-                <div>
-
-                    <span class="section-number">
-                        03
-                    </span>
-
-                    <div>
-
-                        <span class="eyebrow">
-                            STATISTICAL ENGINE
-                        </span>
-
-                        <h2>
-                            Analisador
-                        </h2>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="analyzer card">
-
-                <div class="analyzer-top">
-
-                    <div>
-
-                        <span class="eyebrow">
-                            MODO DE ANÁLISE
-                        </span>
-
-                        <h3>
-                            Dúzias, colunas ou curvas
-                        </h3>
-
-                        <p>
-                            Escolha uma categoria de análise.
-                            As curvas utilizam a ordem física
-                            da roda europeia.
-                        </p>
-
-                    </div>
-
-
-                    <!-- CATEGORIAS -->
-
-                    <div class="category-switch">
-
-                        <button
-                            id="btnDuvidas"
-                            class="category active"
-                            type="button">
-
-                            DÚZIAS
-
+                        <button type="button" class="btn-open" id="openPlatform">
+                            <span>ABRIR</span>
+                            <span class="button-arrow">↗</span>
                         </button>
-
-
-                        <button
-                            id="btnColunas"
-                            class="category"
-                            type="button">
-
-                            COLUNAS
-
-                        </button>
-
-
-                        <button
-                            id="btnCurvas"
-                            class="category"
-                            type="button">
-
-                            CURVAS
-
-                        </button>
-
                     </div>
 
-                </div>
+                    <p class="input-hint">
+                        O carregamento depende de a plataforma permitir exibição em iframe.
+                    </p>
+                </form>
 
+                <!-- IFRAME -->
+                <div class="browser-window">
+                    <div class="browser-toolbar">
+                        <div class="browser-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
 
-                <!-- HISTÓRICO -->
+                        <div class="browser-address">
+                            <span class="lock-icon">◇</span>
+                            <span>Área de visualização da plataforma</span>
+                        </div>
 
-                <div class="history-input">
+                        <span class="browser-menu">•••</span>
+                    </div>
 
-                    <div class="history-title">
+                    <div class="iframe-container">
+                        <div class="iframe-placeholder" id="iframePlaceholder">
+                            <div class="placeholder-icon">
+                                <span>↗</span>
+                            </div>
 
-                        <div>
+                            <h3>Seu ambiente começa aqui</h3>
 
-                            <span>
-                                HISTÓRICO
+                            <p>
+                                Insira o link da plataforma no campo acima
+                                e clique em <strong>ABRIR</strong>.
+                            </p>
+
+                            <span class="placeholder-caption">
+                                AGUARDANDO ENDEREÇO
                             </span>
-
-                            <small>
-                                Digite os números separados por espaço
-                            </small>
-
                         </div>
 
-                        <span id="historyCount">
-                            0 GIROS
-                        </span>
-
+                        <iframe
+                            id="platformFrame"
+                            title="Plataforma Mega Sic Bac"
+                            src="about:blank"
+                            loading="eager"
+                            allow="fullscreen"
+                            referrerpolicy="strict-origin-when-cross-origin">
+                        </iframe>
                     </div>
 
-
-                    <textarea
-                        id="historyInput"
-                        placeholder="Exemplo: 12 5 23 0 31 18 7 29 14 3">
-                    </textarea>
-
-
-                    <div class="history-actions">
-
-                        <button
-                            id="addHistory"
-                            class="secondary-button"
-                            type="button">
-
-                            SALVAR HISTÓRICO
-
-                        </button>
-
-
-                        <button
-                            id="clearHistory"
-                            class="ghost-button"
-                            type="button">
-
-                            LIMPAR
-
-                        </button>
-
+                    <div class="browser-footer">
+                        <span>VISUALIZAÇÃO EXTERNA</span>
+                        <span>ALTURA RESPONSIVA</span>
                     </div>
-
                 </div>
 
+                <!-- STATUS DO HISTÓRICO -->
+                <div class="history-status" id="historyStatus">
+                    <span class="history-status-dot"></span>
+
+                    <div class="history-status-content">
+                        <strong id="historyStatusTitle">Histórico do jogo</strong>
+                        <span id="historyStatusMessage">
+                            Aguardando integração com uma fonte de histórico.
+                        </span>
+                    </div>
+                </div>
 
                 <!-- ANÁLISE -->
+                <div class="analysis-action">
+                    <div class="analysis-copy">
+                        <span class="section-tag">02 / INTELIGÊNCIA</span>
+                        <h3>Pronto para analisar?</h3>
+                        <p>
+                            Clique abaixo para iniciar a contagem de 40 segundos.
+                        </p>
+                    </div>
+                </div>
 
-                <div class="analysis-area">
+                <!-- CAIXA DE ANÁLISE -->
+                <section class="analysis-panel" id="analysisPanel">
 
-                    <button
-                        id="analyzeButton"
-                        class="analyze-button"
-                        type="button">
+                    <div class="analysis-header">
+                        <div>
+                            <span class="analysis-label">FRONTIER AI</span>
+                            <h2>Análise Inteligente</h2>
+                            <p id="analysisStatus">Aguardando análise</p>
+                        </div>
 
-                        <span class="button-icon">
-                            ◉
+                        <span class="analysis-indicator" id="analysisIndicator">
+                            <span class="indicator-dot"></span>
+                            <span id="indicatorText">PRONTO</span>
                         </span>
+                    </div>
 
-                        <span>
-                            ANALISAR ENTRADAS
-                        </span>
+                    <div class="analysis-timer">
+                        <span>Tempo de análise</span>
+                        <strong id="analysisCountdown">00:15</strong>
+                    </div>
 
-                        <b>
-                            →
-                        </b>
+                    <div class="analysis-progress">
+                        <div id="analysisProgressBar"></div>
+                    </div>
 
+                    <div class="analysis-result" id="analysisResult" aria-live="polite">
+                        <div class="result-placeholder">
+                            <span class="placeholder-symbol">✦</span>
+                            <strong>Sua próxima análise aparecerá aqui</strong>
+                            <span>Aguardando comando para analisar.</span>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-analyze" id="btnAnalyze">
+                        <span class="analyze-icon">⌕</span>
+                        <span>ANALISAR ENTRADA</span>
+                        <span class="button-arrow">→</span>
                     </button>
 
+                    <!-- HISTÓRICO DAS ANÁLISES -->
+                    <div class="analysis-history">
+                        <div class="analysis-history-header">
+                            <h3>Histórico de análises</h3>
 
-                    <!-- LOADER -->
-
-                    <div
-                        id="loader"
-                        class="loader hidden">
-
-                        <div class="loader-orbit">
-
-                            <div class="orbit"></div>
-
-                            <div class="loader-core">
-                                AI
-                            </div>
-
+                            <button type="button" id="clearAnalysisHistory">
+                                Limpar
+                            </button>
                         </div>
 
-
-                        <div class="loading-text">
-
-                            <span id="loadingStatus">
-                                Inicializando análise...
-                            </span>
-
-
-                            <div class="loading-bar">
-
-                                <div
-                                    id="loadingProgress">
-                                </div>
-
-                            </div>
-
-
-                            <div class="loading-items">
-
-                                <span id="loadHistory">
-                                    ○ HISTÓRICO
-                                </span>
-
-                                <span id="loadCombinations">
-                                    ○ COMBINAÇÕES
-                                </span>
-
-                                <span id="loadStatistics">
-                                    ○ ESTATÍSTICAS
-                                </span>
-
-                            </div>
-
+                        <div id="analysisHistoryList">
+                            <p class="history-empty">
+                                Nenhuma análise registrada.
+                            </p>
                         </div>
+                    </div>
+                </section>
+            </section>
 
+            <!-- CONTROLE DAS SESSÕES -->
+            <section class="panel sessions-panel">
+                <div class="panel-heading">
+                    <div>
+                        <span class="section-tag">03 / GESTÃO DE TEMPO</span>
+                        <h2>Controle de sessões</h2>
+                        <p>Organização diária para limitar o tempo de tela.</p>
                     </div>
 
+                    <div class="daily-limit">
+                        <span>LIMITE POR SESSÃO</span>
+                        <strong>30:00 <small>MIN</small></strong>
+                    </div>
+                </div>
 
-                    <!-- RESULTADO -->
+                <!-- CRONÔMETRO -->
+                <div class="timer-card">
+                    <div class="timer-info">
+                        <span class="section-tag">CRONÔMETRO DA SESSÃO</span>
+                        <h3>Tempo restante</h3>
+                        <p>Controle de tempo da sessão.</p>
+                    </div>
 
-                    <div
-                        id="result"
-                        class="result hidden">
+                    <div class="timer-display">
+                        <span>30:00</span>
+                        <small>MIN : SEG</small>
+                    </div>
 
-                        <div class="result-header">
-
-                            <div>
-
-                                <span class="eyebrow">
-                                    ANÁLISE CONCLUÍDA
-                                </span>
-
-                                <h3>
-                                    Combinação selecionada
-                                </h3>
-
-                            </div>
-
-
-                            <span class="random-badge">
-                                ALTA CHANCE DE WIN
-                            </span>
-
-                        </div>
-
-
-                        <div class="result-combination">
-
-                            <span id="resultType">
-                                DÚZIAS
-                            </span>
-
-                            <strong id="resultCombination">
-                                DÚZIA 1 + DÚZIA 2
-                            </strong>
-
-                            <div class="zero-protection">
-
-                                <span>
-                                    0
-                                </span>
-
-                                PROTEÇÃO ZERO ATIVA
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="stats-grid">
-
-                            <div>
-
-                                <span>
-                                    GIROS ANALISADOS
-                                </span>
-
-                                <strong id="analyzedSpins">
-                                    0
-                                </strong>
-
-                            </div>
-
-
-                            <div>
-
-                                <span>
-                                    MARTIGALE
-                                </span>
-
-                                <strong id="combinationCount">
-                                    2
-                                </strong>
-
-                            </div>
-
-
-                            <div>
-
-                                <span>
-                                    CHANCE DE WIN
-                                </span>
-
-                                <strong id="coverage">
-                                    0%
-                                </strong>
-
-                            </div>
-
-                        </div>
-
-
-                        <button
-                            id="analyzeAgain"
-                            class="analyze-again"
-                            type="button">
-
-                            ANALISAR NOVAMENTE
-
+                    <div class="timer-actions">
+                        <button type="button" class="btn-timer" disabled>
+                            INICIAR SESSÃO
                         </button>
 
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- HISTÓRICO DA BANCA -->
-
-        <section class="section">
-
-            <div class="section-heading">
-
-                <div>
-
-                    <span class="section-number">
-                        04
-                    </span>
-
-                    <div>
-
-                        <span class="eyebrow">
-                            SESSION LOG
-                        </span>
-
-                        <h2>
-                            Resultados da banca
-                        </h2>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="result-register">
-
-                    <div>
-
-                        <span class="eyebrow">
-                            REGISTRAR RESULTADO
-                        </span>
-
-                        <p>
-                            Use valor positivo para lucro e
-                            negativo para prejuízo.
-                        </p>
-
-                    </div>
-
-
-                    <div class="register-controls">
-
-                        <input
-                            type="number"
-                            id="resultado"
-                            step="0.01"
-                            placeholder="Ex: +15 ou -10">
-
-
-                        <button
-                            id="registrarResultado"
-                            class="secondary-button"
-                            type="button">
-
-                            REGISTRAR
-
+                        <button type="button" class="btn-reset" disabled>
+                            REINICIAR
                         </button>
+                    </div>
+                </div>
 
+                <!-- HORÁRIOS -->
+                <div class="schedule-heading">
+                    <h3>Agenda diária</h3>
+                    <span>HORÁRIOS DE REFERÊNCIA</span>
+                </div>
+
+                <div class="schedule-grid">
+                    <article class="schedule-card">
+                        <div class="schedule-top">
+                            <span class="session-number">01</span>
+                            <span class="schedule-status">PROGRAMADA</span>
+                        </div>
+
+                        <span class="schedule-period">MANHÃ</span>
+                        <strong class="schedule-time">09:00 <i>—</i> 09:30</strong>
+
+                        <div class="schedule-bottom">
+                            <span>Duração: 30 minutos</span>
+                            <span class="schedule-dot"></span>
+                        </div>
+                    </article>
+
+                    <article class="schedule-card">
+                        <div class="schedule-top">
+                            <span class="session-number">02</span>
+                            <span class="schedule-status">PROGRAMADA</span>
+                        </div>
+
+                        <span class="schedule-period">TARDE</span>
+                        <strong class="schedule-time">17:30 <i>—</i> 18:00</strong>
+
+                        <div class="schedule-bottom">
+                            <span>Duração: 30 minutos</span>
+                            <span class="schedule-dot"></span>
+                        </div>
+                    </article>
+
+                    <article class="schedule-card">
+                        <div class="schedule-top">
+                            <span class="session-number">03</span>
+                            <span class="schedule-status">PROGRAMADA</span>
+                        </div>
+
+                        <span class="schedule-period">NOITE</span>
+                        <strong class="schedule-time">23:00 <i>—</i> 23:30</strong>
+
+                        <div class="schedule-bottom">
+                            <span>Duração: 30 minutos</span>
+                            <span class="schedule-dot"></span>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="schedule-notice">
+                    <span class="notice-icon">i</span>
+                    <p>
+                        Para obter uma melhor experiência com nosso sistema,
+                        siga os horários programados. Eles ajudam a manter
+                        a disciplina, o controle emocional e uma rotina
+                        de operações mais organizada.
+                    </p>
+                </div>
+            </section>
+
+            <!-- ESTRATÉGIAS -->
+            <section class="panel strategies-panel">
+                <div class="panel-heading">
+                    <div>
+                        <span class="section-tag">04 / CONFIGURAÇÃO</span>
+                        <h2>Central de estratégias</h2>
+                        <p>Área reservada para as regras que você vai enviar.</p>
                     </div>
 
+                    <span class="coming-soon">EM CONFIGURAÇÃO</span>
                 </div>
 
+                <div class="strategy-placeholder">
+                    <div class="strategy-placeholder-icon">⌘</div>
 
-                <div class="table-wrapper">
+                    <h3>Estratégias ainda não configuradas</h3>
 
-                    <table>
-
-                        <thead>
-
-                            <tr>
-
-                                <th>
-                                    DIA
-                                </th>
-
-                                <th>
-                                    RESULTADO
-                                </th>
-
-                                <th>
-                                    BANCA
-                                </th>
-
-                                <th>
-                                    STATUS
-                                </th>
-
-                            </tr>
-
-                        </thead>
-
-                        <tbody id="bankHistory"></tbody>
-
-                    </table>
-
+                    <p>
+                        A estrutura está preparada para receber os métodos,
+                        critérios de entrada, regras de saída e resultados
+                        que você fornecer.
+                    </p>
                 </div>
+            </section>
+        </main>
 
-
-                <button
-                    id="resetAll"
-                    class="danger-button"
-                    type="button">
-
-                    APAGAR TODOS OS DADOS
-
-                </button>
-
+        <!-- RODAPÉ -->
+        <footer class="footer">
+            <div class="footer-brand">
+                <span class="footer-logo">M</span>
+                <span>MEGA SIC BAC ANALYZER</span>
             </div>
 
-        </section>
+            <p>PAINEL DE CONTROLE • VERSÃO 1.0</p>
 
-
-        <footer>
-
-            <span>
-                ROULETBANK
-            </span>
-
-            <small>
-                GESTÃO • ESTATÍSTICA 
-            </small>
-
+            <span class="footer-status">ESTRUTURA VISUAL</span>
         </footer>
-
-    </main>
-
+    </div>
 
     <script src="script.js"></script>
-
 </body>
-
 </html>
