@@ -23,7 +23,7 @@
         {
             id: 2,
             name: "Tarde",
-            start: "17:30",
+            start: "14:30",
             end: "18:00"
         },
         {
