@@ -1,421 +1,131 @@
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#090909">
 
-    <title>Mega Sic Bac Analyzer Pro</title>
+    <meta name="theme-color" content="#07120F">
+    <meta name="application-name" content="FOOTBALL BLITZ TOP CARD">
+    <meta name="apple-mobile-web-app-title" content="FOOTBALL BLITZ">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>FOOTBALL BLITZ TOP CARD</title>
 
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="Ícone Neon Roxo Mega SIC.png" type="image/x-icon">
+
+    <link rel="icon" type="image/png" href="Ícone Futurista Football Blitz.png">
+<link rel="apple-touch-icon" href="Ícone Futurista Football Blitz.png">
+<link rel="manifest" href="manifest.json">
 </head>
 
+
 <body>
-    <div class="background-grid"></div>
+<div class="app">
 
-    <div class="app-container">
+    <header class="header">
+        <div class="brand">
+            <div>
+                <h1>FOOTBALL BLITZ TOP CARD</h1>
+                <span>PAINEL DE ANÁLISE</span>
+            </div>
+        </div>
+        <button class="icon-button" id="settingsButton">⚙</button>
+    </header>
 
-        <!-- CABEÇALHO -->
-        <header class="topbar">
-            <div class="brand">
-                <div class="brand-icon">M</div>
+    <main>
 
-                <div class="brand-info">
-                    <h1>MEGA SIC <span>BAC ANALYZER</span></h1>
-                    <p>PLATAFORMA DE ANÁLISE E CONTROLE</p>
-                </div>
+        <section id="inicio" class="section">
+            <div class="section-heading">
+                <h2>ÁREA DO JOGO</h2>
+                <button id="toggleGame">Expandir</button>
             </div>
 
-            <div class="system-status">
-                <span class="status-dot"></span>
-                <span>PAINEL PRONTO</span>
+            <div class="game-card" id="gameCard">
+                <iframe id="gameFrame" src="about:blank"
+                    title="Área configurável do jogo"></iframe>
+                <p id="gamePlaceholder">Configure o endereço do iframe nas configurações.</p>
             </div>
-        </header>
+        </section>
 
-        <main>
+        <div class="analysis-grid">
 
-            <!-- APRESENTAÇÃO -->
-            <section class="welcome-section">
-                <div>
-                    <span class="section-tag">DASHBOARD / OVERVIEW</span>
-                    <h2>Central de <span>operações</span></h2>
-
-                    <p>
-                        Acompanhe suas sessões, visualize a plataforma
-                        e organize suas análises em um único ambiente.
-                    </p>
-                </div>
-
-                <div class="date-card">
-                    <span>Pragmatic Play</span>
-                    <strong>MEGA SIC BAC</strong>
-                    <small>Controle de sessões</small>
-                </div>
-            </section>
-
-            <!-- INDICADORES -->
-            <section class="stats-grid">
-                <article class="stat-card">
-                    <div class="stat-header">
-                        <span>SESSÕES DO DIA</span>
-                        <span class="stat-icon">01</span>
-                    </div>
-
-                    <strong class="stat-value">00 <small>/ 03</small></strong>
-
-                    <div class="progress-track">
-                        <div class="progress-fill" style="width: 0%"></div>
-                    </div>
-
-                    <p>Limite previsto de sessões</p>
-                </article>
-
-                <article class="stat-card">
-                    <div class="stat-header">
-                        <span>TEMPO DE SESSÃO</span>
-                        <span class="stat-icon">02</span>
-                    </div>
-
-                    <strong class="stat-value">30 <small>MIN</small></strong>
-                    <div class="stat-line"></div>
-                    <p>Duração prevista por sessão</p>
-                </article>
-
-                <article class="stat-card">
-                    <div class="stat-header">
-                        <span>STATUS DO PAINEL</span>
-                        <span class="stat-icon">03</span>
-                    </div>
-
-                    <strong class="stat-value status-text">AGUARDANDO</strong>
-                    <div class="stat-line"></div>
-                    <p>Aguardando horário da sessão</p>
-                </article>
-            </section>
-
-            <!-- PLATAFORMA -->
-            <section class="panel platform-panel">
-
-                <div class="panel-heading">
+            <section id="cores" class="panel">
+                <div class="panel-header">
                     <div>
-                        <span class="section-tag">01 / PLATAFORMA</span>
-                        <h2>Ambiente de jogo</h2>
-                        <p>Insira o endereço da plataforma para tentar abri-la abaixo.</p>
+                        <span class="eyebrow">ANÁLISE 01</span>
+                        <h2>ANÁLISE DE CORES</h2>
                     </div>
-
-                    <span class="live-badge">
-                        <span class="status-dot"></span>
-                        WEB VIEW
-                    </span>
+                    <span class="status-dot"></span>
                 </div>
 
-                <!-- CAMPO DO LINK -->
-                <form class="url-form" id="platformForm">
-                    <label for="platformUrl">ENDEREÇO DA PLATAFORMA</label>
-
-                    <div class="url-input-group">
-                        <div class="input-wrapper">
-                            <span class="url-prefix">↗</span>
-
-                            <input
-                                type="text"
-                                id="platformUrl"
-                                name="platformUrl"
-                                placeholder="https://www.exemplo.com"
-                                autocomplete="url"
-                            >
-                        </div>
-
-                        <button type="button" class="btn-open" id="openPlatform">
-                            <span>ABRIR</span>
-                            <span class="button-arrow">↗</span>
-                        </button>
-                    </div>
-
-                    <p class="input-hint">
-                        O carregamento depende de a plataforma permitir exibição em iframe.
-                    </p>
-                </form>
-
-                <!-- IFRAME -->
-                <div class="browser-window">
-                    <div class="browser-toolbar">
-                        <div class="browser-dots">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-
-                        <div class="browser-address">
-                            <span class="lock-icon">◇</span>
-                            <span>Área de visualização da plataforma</span>
-                        </div>
-
-                        <span class="browser-menu">•••</span>
-                    </div>
-
-                    <div class="iframe-container">
-                        <div class="iframe-placeholder" id="iframePlaceholder">
-                            <div class="placeholder-icon">
-                                <span>↗</span>
-                            </div>
-
-                            <h3>Seu ambiente começa aqui</h3>
-
-                            <p>
-                                Insira o link da plataforma no campo acima
-                                e clique em <strong>ABRIR</strong>.
-                            </p>
-
-                            <span class="placeholder-caption">
-                                AGUARDANDO ENDEREÇO
-                            </span>
-                        </div>
-
-                        <iframe
-                            id="platformFrame"
-                            title="Plataforma Mega Sic Bac"
-                            src="about:blank"
-                            loading="eager"
-                            allow="fullscreen"
-                            referrerpolicy="strict-origin-when-cross-origin">
-                        </iframe>
-                    </div>
-
-                    <div class="browser-footer">
-                        <span>VISUALIZAÇÃO EXTERNA</span>
-                        <span>ALTURA RESPONSIVA</span>
-                    </div>
+                <div class="result-box">
+                    <span class="result-label">RESULTADO</span>
+                    <h3 id="colorResult">AGUARDANDO</h3>
+                    <p id="colorProtection">PROTEGER EMPATE ATÉ G1</p>
+                    <strong id="colorPercentage">--%</strong>
                 </div>
 
-                <!-- STATUS DO HISTÓRICO -->
-                <div class="history-status" id="historyStatus">
-                    <span class="history-status-dot"></span>
-
-                    <div class="history-status-content">
-                        <strong id="historyStatusTitle">Histórico do jogo</strong>
-                        <span id="historyStatusMessage">
-O sistema coleta e atualiza automaticamente o histórico de partidas de forma integrada. No entanto, os registros não ficam visíveis para o usuário na interface atual.
-                        </span>
-                    </div>
+                <div class="progress-track">
+                    <div id="colorProgress" class="progress-fill"></div>
                 </div>
 
-                <!-- ANÁLISE -->
+                <p id="colorStatus" class="status-text">Sistema disponível</p>
+
+                <button class="primary-button" id="colorButton">
+                    ANALISAR CORES
+                </button>
+
                 
-<div class="analysis-action">
-    <div class="analysis-copy">
-        <span class="section-tag">02 / INTELIGÊNCIA</span>
-        <h3>Iniciar análise inteligente</h3>
-        <p>
-            Clique no botão abaixo para iniciar a contagem regressiva de 15 segundos
-            e preparar o sistema para a análise dos dados.
-        </p>
-    </div>
+
+                <div class="countdown" id="colorCountdown"></div>
+            </section>
+
+        </div>
+
+        <section id="configuracoes" class="panel settings-panel">
+            <div class="panel-header">
+                <div>
+                    <span class="eyebrow">PERSONALIZAÇÃO</span>
+                    <h2>CONFIGURAÇÕES</h2>
+                </div>
+            </div>
+
+            <label class="setting-row">
+                <span>Tema escuro</span>
+                <input type="checkbox" id="themeToggle" checked>
+            </label>
+
+            <label class="setting-row">
+                <span>Sons do aplicativo</span>
+                <input type="checkbox" id="soundToggle">
+            </label>
+
+            <label class="setting-row iframe-setting">
+                <span>Endereço do iframe</span>
+                <input type="url" id="iframeUrl"
+                    placeholder="https://exemplo.com">
+            </label>
+
+            <button class="primary-button" id="saveSettings">
+                SALVAR CONFIGURAÇÕES
+            </button>
+        </section>
+
+    </main>
+
+    <nav class="bottom-nav">
+        <a href="#inicio"><span>⌂</span>Início</a>
+        <a href="#cores"><span>◉</span>Cores</a>
+        <a href="#duplos"><span>⚄</span>Duplos</a>
+        <a href="#triplos"><span>◷</span>Triplos</a>
+        <a href="#configuracoes"><span>⚙</span>Ajustes</a>
+    </nav>
+
 </div>
 
-
-                <!-- CAIXA DE ANÁLISE -->
-                <section class="analysis-panel" id="analysisPanel">
-
-                    <div class="analysis-header">
-                        <div>
-                            <span class="analysis-label">FRONTIER AI</span>
-                            <h2>Análise Inteligente</h2>
-                            <p id="analysisStatus">Aguardando análise</p>
-                        </div>
-
-                        <span class="analysis-indicator" id="analysisIndicator">
-                            <span class="indicator-dot"></span>
-                            <span id="indicatorText">PRONTO</span>
-                        </span>
-                    </div>
-
-                    <div class="analysis-timer">
-                        <span>Tempo de análise</span>
-                        <strong id="analysisCountdown">00:15</strong>
-                    </div>
-
-                    <div class="analysis-progress">
-                        <div id="analysisProgressBar"></div>
-                    </div>
-
-                    <div class="analysis-result" id="analysisResult" aria-live="polite">
-                        <div class="result-placeholder">
-                            <span class="placeholder-symbol">✦</span>
-                            <strong>Sua próxima análise aparecerá aqui</strong>
-                            <span>Aguardando comando para analisar.</span>
-                        </div>
-                    </div>
-
-                    <button type="button" class="btn-analyze" id="btnAnalyze">
-                        <span class="analyze-icon">⌕</span>
-                        <span>ANALISAR ENTRADA</span>
-                        <span class="button-arrow">→</span>
-                    </button>
-
-                    <!-- HISTÓRICO DAS ANÁLISES -->
-                    <div class="analysis-history">
-                        <div class="analysis-history-header">
-                            <h3>Histórico de análises</h3>
-
-                            <button type="button" id="clearAnalysisHistory">
-                                Limpar
-                            </button>
-                        </div>
-
-                        <div id="analysisHistoryList">
-                            <p class="history-empty">
-                                Nenhuma análise registrada.
-                            </p>
-                        </div>
-                    </div>
-                </section>
-            </section>
-
-            <!-- CONTROLE DAS SESSÕES -->
-            <section class="panel sessions-panel">
-                <div class="panel-heading">
-                    <div>
-                        <span class="section-tag">03 / GESTÃO DE TEMPO</span>
-                        <h2>Controle de sessões</h2>
-                        <p>Organização diária para limitar o tempo de tela.</p>
-                    </div>
-
-                    <div class="daily-limit">
-                        <span>LIMITE POR SESSÃO</span>
-                        <strong>30:00 <small>MIN</small></strong>
-                    </div>
-                </div>
-
-                <!-- CRONÔMETRO -->
-                <div class="timer-card">
-                    <div class="timer-info">
-                        <span class="section-tag">CRONÔMETRO DA SESSÃO</span>
-                        <h3>Tempo restante</h3>
-                        <p>Controle de tempo da sessão.</p>
-                    </div>
-
-                    <div class="timer-display">
-                        <span>30:00</span>
-                        <small>MIN : SEG</small>
-                    </div>
-
-                    <div class="timer-actions">
-                        <button type="button" class="btn-timer" disabled>
-                            INICIAR SESSÃO
-                        </button>
-
-                        <button type="button" class="btn-reset" disabled>
-                            REINICIAR
-                        </button>
-                    </div>
-                </div>
-
-                <!-- HORÁRIOS -->
-                <div class="schedule-heading">
-                    <h3>Agenda diária</h3>
-                    <span>HORÁRIOS DE REFERÊNCIA</span>
-                </div>
-
-                <div class="schedule-grid">
-                    <article class="schedule-card">
-                        <div class="schedule-top">
-                            <span class="session-number">01</span>
-                            <span class="schedule-status">PROGRAMADA</span>
-                        </div>
-
-                        <span class="schedule-period">MANHÃ</span>
-                        <strong class="schedule-time">09:00 <i>—</i> 09:30</strong>
-
-                        <div class="schedule-bottom">
-                            <span>Duração: 30 minutos</span>
-                            <span class="schedule-dot"></span>
-                        </div>
-                    </article>
-
-                    <article class="schedule-card">
-                        <div class="schedule-top">
-                            <span class="session-number">02</span>
-                            <span class="schedule-status">PROGRAMADA</span>
-                        </div>
-
-                        <span class="schedule-period">TARDE</span>
-                        <strong class="schedule-time">17:30 <i>—</i> 18:00</strong>
-
-                        <div class="schedule-bottom">
-                            <span>Duração: 30 minutos</span>
-                            <span class="schedule-dot"></span>
-                        </div>
-                    </article>
-
-                    <article class="schedule-card">
-                        <div class="schedule-top">
-                            <span class="session-number">03</span>
-                            <span class="schedule-status">PROGRAMADA</span>
-                        </div>
-
-                        <span class="schedule-period">NOITE</span>
-                        <strong class="schedule-time">23:00 <i>—</i> 23:30</strong>
-
-                        <div class="schedule-bottom">
-                            <span>Duração: 30 minutos</span>
-                            <span class="schedule-dot"></span>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="schedule-notice">
-                    <span class="notice-icon">i</span>
-                    <p>
-                        Para obter uma melhor experiência com nosso sistema,
-                        siga os horários programados. Eles ajudam a manter
-                        a disciplina, o controle emocional e uma rotina
-                        de operações mais organizada.
-                    </p>
-                </div>
-            </section>
-
-            <!-- ESTRATÉGIAS -->
-            <section class="panel strategies-panel">
-                <div class="panel-heading">
-                    <div>
-                        <span class="section-tag">04 / CONFIGURAÇÃO</span>
-                        <h2>Central de estratégias</h2>
-                        <p>Área reservada para as regras que você vai enviar.</p>
-                    </div>
-
-                    <span class="coming-soon">EM CONFIGURAÇÃO</span>
-                </div>
-
-                <div class="strategy-placeholder">
-                    <div class="strategy-placeholder-icon">⌘</div>
-
-                    <h3>Estratégias ainda não configuradas</h3>
-
-                    <p>
-                        A estrutura está preparada para receber os métodos,
-                        critérios de entrada, regras de saída e resultados
-                        que você fornecer.
-                    </p>
-                </div>
-            </section>
-        </main>
-
-        <!-- RODAPÉ -->
-        <footer class="footer">
-            <div class="footer-brand">
-                <span class="footer-logo">M</span>
-                <span>MEGA SIC BAC ANALYZER</span>
-            </div>
-
-            <p>PAINEL DE CONTROLE • VERSÃO 1.0</p>
-
-            
-        </footer>
-    </div>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
